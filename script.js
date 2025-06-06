@@ -50,4 +50,25 @@ if (contactForm) {
         this.reset();
         alert('Thank you for your message! I will get back to you soon.');
     });
+}
+
+// Hero name scroll transition
+const heroName = document.querySelector('.hero-text h1');
+const heroSection = document.querySelector('.hero');
+
+if (heroName && heroSection) {
+    window.addEventListener('scroll', () => {
+        const heroRect = heroSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        let progress = Math.min(Math.max((0 - heroRect.top) / (windowHeight * 0.5), 0), 1);
+        if (progress < 1) {
+            heroName.classList.remove('fixed-left');
+            heroName.style.transform = `translateX(${-progress * 40}vw)`;
+            heroName.style.opacity = `${1 - progress}`;
+        } else {
+            heroName.classList.add('fixed-left');
+            heroName.style.transform = '';
+            heroName.style.opacity = '1';
+        }
+    });
 } 
