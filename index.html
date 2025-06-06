@@ -6,13 +6,14 @@
     <title>Akshaykumar C - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Akshaykumar C</h1>
+                <h1>AKSHAY KUMAR C</h1>
                 <p class="tagline">Backend Developer</p>
             </div>
         </div>
@@ -28,12 +29,26 @@
                     <div class="skills">
                         <h3>My Skills</h3>
                         <div class="skill-tags">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>Responsive Design</span>
-                            <span>Web Development</span>
+                            <!-- Backend & Server-Side -->
+                            <span>Node.js</span>
+                            <span>Express.js</span>
+                            <span>MongoDB</span>
+                            <span>Mongoose</span>
+                            <span>RESTful APIs</span>
+                            <span>Authentication (JWT)</span>
+                            <span>API Security</span>
+                            
+                            <!-- Frontend (Basic) -->
+                            <span>React (Basics)</span>
+                            <span>JavaScript (ES6+)</span>
+                        
+                            <!-- Dev Tools -->
+                            <span>Git & GitHub</span>
+                            <span>Postman</span>
+                            <span>VS Code</span>
+                            
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -47,28 +62,26 @@
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 1">
+                        <img src="./assets/logowl.png" alt="WorkLuge Project Management Tool">
                     </div>
                     <div class="project-info">
-                        <h3>Project One</h3>
-                        <p>A brief description of your first project goes here.</p>
+                        <h3>WorkLuge</h3>
+                        <p>A comprehensive project management tool built with modern technologies. Features include task tracking, team collaboration, real-time updates, and customizable workflows. Integrated with advanced analytics and reporting capabilities to help teams track progress and make data-driven decisions.</p>
                         <div class="project-links">
-                            <a href="#" class="btn">View Project</a>
-                            <a href="#" class="btn">Source Code</a>
+                            <a href="https://workluge.com/" class="btn" target="_blank">View Project</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 2">
+                    <div class="project-image" style="background-color: #000000;">
+                        <img src="./assets/v4-logo-login.png" alt="AdLuge CRM System Logo" style="max-width: 80%; height: auto; padding: 2rem;">
                     </div>
                     <div class="project-info">
-                        <h3>Project Two</h3>
-                        <p>A brief description of your second project goes here.</p>
+                        <h3>AdLuge CRM</h3>
+                        <p>A powerful Customer Relationship Management system designed for modern businesses. Features include contact management, sales pipeline tracking, email integration, and automated follow-ups. Built with a focus on user experience and scalability, helping businesses streamline their customer interactions and boost sales efficiency.</p>
                         <div class="project-links">
-                            <a href="#" class="btn">View Project</a>
-                            <a href="#" class="btn">Source Code</a>
+                            <a href="https://www.adluge.com/" class="btn" target="_blank">View Project</a>
                         </div>
                     </div>
                 </div>
@@ -81,21 +94,6 @@
         <div class="section-content">
             <h2>Get In Touch</h2>
             <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>email@example.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <p>+1 234 567 890</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
                 <form class="contact-form">
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
@@ -109,7 +107,8 @@
     <footer>
         <p>&copy; 2024 Akshaykumar C. All rights reserved.</p>
     </footer>
-
+    
     <script src="script.js"></script>
+    <script src="background.js"></script>
 </body>
 </html> 

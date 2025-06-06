@@ -1,4 +1,77 @@
-// Smooth scrolling for navigation links
+// Intersection Observer for animations
+const animationObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    },
+    {
+        threshold: 0.15,
+        rootMargin: '0px'
+    }
+);
+
+// Function to stagger animations
+function animateWithDelay(elements, baseDelay = 100) {
+    elements.forEach((el, index) => {
+        setTimeout(() => {
+            el.classList.add('visible');
+        }, baseDelay * index);
+    });
+}
+
+// Initialize animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Add animation classes
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('fade-up');
+        animationObserver.observe(section);
+    });
+
+    // Animate project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.classList.add('fade-up');
+        animationObserver.observe(card);
+    });
+
+    // Animate skill tags with stagger
+    const skillTags = document.querySelectorAll('.skill-tags span');
+    skillTags.forEach(tag => {
+        tag.classList.add('fade-up');
+        animationObserver.observe(tag);
+    });
+
+    // Animate about text
+    const aboutText = document.querySelector('.about-text p');
+    if (aboutText) {
+        aboutText.classList.add('slide-in');
+        animationObserver.observe(aboutText);
+    }
+});
+
+// Existing scroll handling for hero name
+const heroName = document.querySelector('.hero-text h1');
+const heroSection = document.querySelector('.hero');
+const tagLine = document.querySelector('.tagline');
+
+if (heroName && heroSection) {
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const triggerPoint = window.innerHeight * 0.3;
+
+        if (scrollPosition > triggerPoint) {
+            heroName.classList.add('fixed-header');
+            tagLine.style.display = 'none';
+        } else {
+            heroName.classList.remove('fixed-header');
+            tagLine.style.display = 'block';
+        }
+    });
+}
+
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -12,63 +85,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Reveal animations on scroll
-const observerOptions = {
-    threshold: 0.15
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('reveal');
-            observer.unobserve(entry.target); // Only animate once
-        }
-    });
-}, observerOptions);
-
-// Observe all sections except hero
-document.querySelectorAll('section:not(.hero)').forEach(section => {
-    section.classList.add('hidden');
-    observer.observe(section);
-});
-
 // Form submission handling
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Get form values
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        const message = this.querySelector('textarea').value;
-        
-        // You can add your form submission logic here
-        console.log('Form submitted:', { name, email, message });
-        
-        // Clear the form
+        const formData = {
+            name: this.querySelector('input[type="text"]').value,
+            email: this.querySelector('input[type="email"]').value,
+            message: this.querySelector('textarea').value
+        };
+        console.log('Form submitted:', formData);
         this.reset();
         alert('Thank you for your message! I will get back to you soon.');
     });
 }
-
-// Hero name scroll transition
-const heroName = document.querySelector('.hero-text h1');
-const heroSection = document.querySelector('.hero');
-
-if (heroName && heroSection) {
-    window.addEventListener('scroll', () => {
-        const heroRect = heroSection.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        let progress = Math.min(Math.max((0 - heroRect.top) / (windowHeight * 0.5), 0), 1);
-        if (progress < 1) {
-            heroName.classList.remove('fixed-left');
-            heroName.style.transform = `translateX(${-progress * 40}vw)`;
-            heroName.style.opacity = `${1 - progress}`;
-        } else {
-            heroName.classList.add('fixed-left');
-            heroName.style.transform = '';
-            heroName.style.opacity = '1';
-        }
-    });
-} 
