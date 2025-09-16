@@ -49,7 +49,7 @@ class FloatingText {
 
   draw(ctx) {
     ctx.font = `${this.size}px monospace`;
-    ctx.fillStyle = `rgba(237, 237, 237, ${this.opacity})`;
+    ctx.fillStyle = `rgba(34, 197, 94, ${this.opacity})`;
     ctx.fillText(this.text, this.x, this.y);
   }
 }

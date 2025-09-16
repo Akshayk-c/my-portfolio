@@ -10,7 +10,7 @@
     --bg-primary: #0E1117;
     --bg-secondary: #161B22;
     --accent-primary: #4CC9F0;
-    --accent-secondary: #F72585;
+    --accent-secondary: #4CC9F0;
     --text-primary: #EDEDED;
     --text-secondary: #9CA3AF;
     --section-padding: 5rem 2rem;
@@ -458,15 +458,18 @@ section h2:after {
     resize: vertical;
 }
 
-.contact-form button.btn.primary {
+.contact-form button.btn.primary,
+.contact-form button.btn {
     background: var(--accent-primary);
     color: var(--text-primary);
     border: none;
     font-weight: 700;
     letter-spacing: 1px;
+    cursor: pointer;
 }
 
-.contact-form button.btn.primary:hover {
+.contact-form button.btn.primary:hover,
+.contact-form button.btn:hover {
     background: var(--accent-secondary);
     color: var(--bg-primary);
 }

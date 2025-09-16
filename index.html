@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Hero Section -->
@@ -32,15 +33,24 @@
                             <!-- Backend & Server-Side -->
                             <span>Node.js</span>
                             <span>Express.js</span>
+                            <span>Python</span>
                             <span>MongoDB</span>
                             <span>Mongoose</span>
                             <span>RESTful APIs</span>
                             <span>Authentication (JWT)</span>
                             <span>API Security</span>
+                            <span>Image Processing</span>
+                            <span>Text Processing</span>
                             
                             <!-- Frontend (Basic) -->
                             <span>React (Basics)</span>
                             <span>JavaScript (ES6+)</span>
+                            
+                            <!-- Mobile Development -->
+                            <span>Android Studio</span>
+                            <span>Android Development</span>
+                            <span>QR Code Integration</span>
+                            <span>Mobile UI/UX</span>
                         
                             <!-- Dev Tools -->
                             <span>AWS</span>
@@ -90,6 +100,36 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #1a1a2e; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: #4cc9f0; font-size: 4rem;">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>QR Code Billing System</h3>
+                        <p>A comprehensive billing system with QR code integration for seamless payment processing. Features include Android mobile app for scanning QR codes, real-time transaction processing, and a JavaScript-based dashboard for analytics and management. Built with Android Studio for the mobile component and modern web technologies for the admin interface.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #2d1b69; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: #4cc9f0; font-size: 4rem;">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Breaking News Article</h3>
+                        <p>A Python-based website featuring advanced image and text processing capabilities for news article annotation. Involved in complete project lifecycle including designing the system architecture, coding the core functionality, preparing comprehensive test plans, and conducting thorough testing. The platform processes and annotates news content with intelligent image and text analysis features.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -99,12 +139,18 @@
         <div class="section-content">
             <h2>Get In Touch</h2>
             <div class="contact-content">
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" required></textarea>
-                    <a type="submit" class="btn">Send Message</a>
+                <form class="contact-form" id="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn" id="submit-btn">Send Message</button>
                 </form>
+                <div id="success-message" style="display: none; color: #4cc9f0; text-align: center; margin-top: 1rem; font-weight: 600;">
+                    Thank you! Your message has been sent successfully.
+                </div>
+                <div id="error-message" style="display: none; color: #f72585; text-align: center; margin-top: 1rem; font-weight: 600;">
+                    Sorry, there was an error sending your message. Please try again.
+                </div>
             </div>
         </div>
     </section>
@@ -125,7 +171,7 @@
                     </a>
                     <a href="mailto:akshaykumarc666@gmail.com" class="social-link" aria-label="Email">
                         <i class="fas fa-envelope"></i>
-                    </a>
+                      </a>
                     <a href="tel:+916238134369" class="social-link" aria-label="Phone">
                         <i class="fas fa-phone"></i>
                     </a>
@@ -135,7 +181,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Akshaykumar C. All rights reserved.</p>
+        <p>&copy; 2025 Akshaykumar C. All rights reserved.</p>
     </footer>
     
     <script src="script.js"></script>
