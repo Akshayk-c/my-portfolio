@@ -438,7 +438,7 @@ window.addEventListener('load', () => {
         };
 
         try {
-            const response = await fetch('https://portfolio-backend-yq1y.onrender.com/api/contact/mail', {
+            const response = await fetch('https://fz38hg72-3000.inc1.devtunnels.ms/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
