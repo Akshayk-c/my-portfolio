@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initButtonRipple();
     initCardGlow();
+    initCodeAnimation();
 
     // Safety net: force-show everything after 2.5 s in case observer never fires
     setTimeout(() => {
@@ -226,3 +227,84 @@ function initCardGlow() {
 }
 
 window.addEventListener('load', () => document.body.classList.add('loaded'));
+
+// ────────────────────────────────────────────────────────────
+// 7. BACKGROUND CODE TYPING ANIMATION
+// ────────────────────────────────────────────────────────────
+function initCodeAnimation() {
+    const containers = [
+        document.getElementById('codeBgLeft'),
+        document.getElementById('codeBgRight')
+    ];
+
+    const snippets = [
+        "const dev = { name: 'Akshay', role: 'Full Stack' };",
+        "function deploy(app) { lambda.push(app); }",
+        "while(alive) { code(); sleep(); }",
+        "import { express } from 'nodejs';",
+        "const db = await mongo.connect(uri);",
+        "app.get('/api', (req, res) => res.json());",
+        "git commit -m 'feat: redesign'",
+        "console.log('Portfolio live');",
+        "npm install innovation --save",
+        "const scale = code.quality * x;",
+        "const app = express();",
+        "app.listen(3000);",
+        "export default function() {}"
+    ];
+
+    containers.forEach((container, i) => {
+        if (!container) return;
+
+        function createLine() {
+            const line = document.createElement('div');
+            line.className = 'code-line';
+
+            // Random vertical position
+            line.style.top = Math.random() * 90 + 5 + '%';
+            if (i === 0) {
+                line.style.left = Math.random() * 10 + 'px';
+            } else {
+                line.style.right = Math.random() * 10 + 'px';
+            }
+
+            container.appendChild(line);
+
+            // Fade in
+            setTimeout(() => line.classList.add('visible'), 50);
+
+            const text = snippets[Math.floor(Math.random() * snippets.length)];
+            let charIndex = 0;
+
+            const cursor = document.createElement('span');
+            cursor.className = 'code-cursor';
+            line.appendChild(cursor);
+
+            function typeChar() {
+                if (charIndex < text.length) {
+                    const char = text.charAt(charIndex);
+                    const charNode = document.createTextNode(char);
+                    line.insertBefore(charNode, cursor);
+                    charIndex++;
+                    setTimeout(typeChar, Math.random() * 40 + 10);
+                } else {
+                    cursor.remove();
+                    // Stay for a while then fade out and remove
+                    setTimeout(() => {
+                        line.classList.remove('visible');
+                        setTimeout(() => line.remove(), 1000);
+                    }, 3000 + Math.random() * 2000);
+
+                    // Spawn next line after a delay
+                    setTimeout(createLine, Math.random() * 2000 + 1000);
+                }
+            }
+            typeChar();
+        }
+
+        // Multiple initial lines for each side
+        for (let j = 0; j < 3; j++) {
+            setTimeout(createLine, j * 1500 + (i * 1000));
+        }
+    });
+}
